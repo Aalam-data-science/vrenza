@@ -1,0 +1,12 @@
+{
+  "name": "VIRENZA — Healthcare Intelligence & Coordination Infrastructure",
+  "description": "An intelligent enterprise coordination layer for patients, clinicians, health systems, emergency operations, and health data infrastructure.",
+  "requestFramePermissions": [
+    "geolocation",
+    "microphone",
+    "camera"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

@@ -1,0 +1,31 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    // Connection test document
+    match /test/connection {
+      allow read, write: if true;
+    }
+
+    // User profiles & sovereign medical vaults
+    match /users/{userId} {
+      allow read, write: if isOwner(userId);
+
+      match /{allSubcollections=**} {
+        allow read, write: if isOwner(userId);
+      }
+    }
+
+    // Emergency broadcasts & facility status
+    match /emergency_beacons/{beaconId} {
+      allow read: if true;
+      allow write: if isAuthenticated();
+    }
+  }
+}

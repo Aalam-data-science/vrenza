@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VIRENZA — Healthcare Intelligence & Coordination Infrastructure</title>
+    <meta name="description" content="An intelligent enterprise coordination layer for patients, clinicians, health systems, emergency operations, and health data infrastructure." />
+    <meta property="og:title" content="VIRENZA — Healthcare Intelligence & Coordination Infrastructure" />
+    <meta property="og:description" content="An intelligent enterprise coordination layer for patients, clinicians, health systems, emergency operations, and health data infrastructure." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    
+    <!-- PWA & Mobile Meta -->
+    <meta name="theme-color" content="#FBFBF7" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="VIRENZA" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+
+    <!-- Polyfill to allow safe assignment to window.fetch in environments with getter-only fetch (e.g. AI Studio preview / extensions) -->
+    <script>
+      (function() {
+        try {
+          var desc = Object.getOwnPropertyDescriptor(Window.prototype, 'fetch');
+          if (desc && !desc.set && desc.configurable) {
+            var _nativeFetch = window.fetch ? window.fetch.bind(window) : undefined;
+            Object.defineProperty(Window.prototype, 'fetch', {
+              get: function() {
+                return _nativeFetch;
+              },
+              set: function(fn) {
+                _nativeFetch = fn;
+              },
+              enumerable: desc.enumerable !== undefined ? desc.enumerable : true,
+              configurable: true
+            });
+          }
+        } catch (e) {
+          console.warn('Could not define fetch setter on Window.prototype', e);
+        }
+      })();
+    </script>
+
+    <!-- Google Fonts: Inter (UI), Newsreader (Editorial Serif), IBM Plex Mono (Command Center) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet" />
+  </head>
+  <body class="bg-[#F5F5F0] text-[#22241F] antialiased selection:bg-[#D9EBDE] selection:text-[#3C7049]">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

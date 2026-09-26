@@ -1,0 +1,62 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "type": "object",
+      "description": "Authenticated patient or clinician profile",
+      "properties": {
+        "uid": { "type": "string" },
+        "displayName": { "type": "string" },
+        "email": { "type": "string" },
+        "role": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["uid", "email"]
+    },
+    "ConsultationRecord": {
+      "title": "ConsultationRecord",
+      "type": "object",
+      "description": "Clinical or AI triage consultation thread",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "title": { "type": "string" },
+        "type": { "type": "string" },
+        "messages": { "type": "array" },
+        "summary": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "userId", "createdAt"]
+    },
+    "GeneratedMedia": {
+      "title": "GeneratedMedia",
+      "type": "object",
+      "description": "Generated or edited medical imagery, therapeutic music, or video clinical guidance",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "mediaType": { "type": "string" },
+        "url": { "type": "string" },
+        "prompt": { "type": "string" },
+        "modelUsed": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "userId", "mediaType", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "Primary user profile document"
+    },
+    "/users/{userId}/consultations/{consultationId}": {
+      "schema": "ConsultationRecord",
+      "description": "User consultation sessions and conversations"
+    },
+    "/users/{userId}/media/{mediaId}": {
+      "schema": "GeneratedMedia",
+      "description": "User AI generated clinical illustrations, therapeutic audio clips, and educational animations"
+    }
+  }
+}

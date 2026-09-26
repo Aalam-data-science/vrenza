@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg-base: #F5F5F0;
+  --color-surface-base: #FBFBF7;
+  --color-surface-alt: #F4F2EE;
+  --color-ink-primary: #22241F;
+  --color-ink-secondary: #5A564C;
+  --color-ink-tertiary: #7A7568;
+  --color-hairline: #E7E4DC;
+  
+  --color-clinical: #3C7049;
+  --color-clinical-soft: #D9EBDE;
+  --color-surgical: #3E6B8E;
+  --color-surgical-soft: #DDE8F0;
+  --color-amber-virenza: #B8822E;
+  --color-amber-soft: #FBF3DE;
+  --color-emergency: #B03A28;
+  --color-emergency-soft: #FBE9E7;
+
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-serif: 'Newsreader', Georgia, Cambria, serif;
+  --font-mono: 'IBM Plex Mono', Menlo, Monaco, Consolas, monospace;
+}
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #F5F5F0;
+  color: #22241F;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbars for high-density enterprise UI */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F5F5F0;
+}
+::-webkit-scrollbar-thumb {
+  background: #E7E4DC;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #7A7568;
+}
+
+/* Focus styles for keyboard accessibility */
+:focus-visible {
+  outline: 2px solid #3C7049;
+  outline-offset: 2px;
+}
